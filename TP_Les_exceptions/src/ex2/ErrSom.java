@@ -1,10 +1,11 @@
 package ex2;
 
+@SuppressWarnings("serial")
 public class ErrSom extends ErrNat {
-	int n1, n2;
+	int number1, number2;
 
 	ErrSom(int a, int b) {
-		this.n1 = a;
-		this.n2 = b;
+		this.number1 = a;
+		this.number2 = b;
 	}
 }
