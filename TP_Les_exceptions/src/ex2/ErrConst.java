@@ -1,14 +1,14 @@
 package ex2;
 
 @SuppressWarnings("serial")
-public class ErrConst extends Exception {
-	int entier;
+public class ErrConst extends ErrNat {
+	int n;
 
-	public ErrConst(int entier) {
-		this.entier = entier;
+	ErrConst(int n3) {
+		this.n = n;
 	}
-	public int getEntier() {
-		return this.entier;
+
+	public int getNum() {
+		return n;
 	}
-	
 }
