@@ -31,7 +31,7 @@ public class Test {
 		} catch (ErrSom e) {
 			System.err.println("Erreur de somme des valeurs " + e.n1 + " et " + e.n2);
 		} catch (ErrDiff e) {
-			System.err.println("Erreur de difference des valeurs " + e.n1 + " et " + e.n2);
+			System.err.println("Erreur de difference des valeurs " + e.number + " et " + e.number2);
 		} catch (ErrProd e) {
 			System.err.println("Erreur de produit des valeurs " + e.n1 + " et " + e.n2);
 		}

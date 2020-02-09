@@ -2,13 +2,13 @@ package ex2;
 
 @SuppressWarnings("serial")
 public class ErrConst extends ErrNat {
-	int n;
+	int number;
 
-	ErrConst(int n3) {
-		this.n = n;
+	ErrConst(int number) {
+		this.number = number;
 	}
 
 	public int getNum() {
-		return n;
+		return number;
 	}
 }
