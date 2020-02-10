@@ -70,7 +70,7 @@ public class CreneauxDaoImpl implements CreneauDao {
 	@Override
 	public void updateCreneau(Creneau C) {
 		try {
-			String Query = "Update Creaneaux set version = ? ,hdebut=?,mdebut=?,hfin=?,mfin=?,id_medecin = ? where ID = ?";
+			String Query = "Update Creaneaux set version = ? ,hdebut=?,mdebut=?,hfin=?,mfin=?,id_medecin = ? where id = ?";
 			PreparedStatement preparedStatement = connection.getConnection().prepareStatement(Query);
 			preparedStatement.setInt(1, C.getVersion());
 			preparedStatement.setInt(2, C.getHdebut());
