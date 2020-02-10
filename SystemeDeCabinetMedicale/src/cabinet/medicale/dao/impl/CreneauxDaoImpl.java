@@ -31,7 +31,7 @@ public class CreneauxDaoImpl implements CreneauDao {
 
 		try {
 			statement = connection.getConnection().createStatement();
-			resultSet = statement.executeQuery("select * from Creaneau");
+			resultSet = statement.executeQuery("select * from Creaneaux");
 
 			while (resultSet.next()) {
 				Creneau C = new Creneau(resultSet.getInt(1), resultSet.getInt(2), resultSet.getInt(3),
@@ -48,7 +48,7 @@ public class CreneauxDaoImpl implements CreneauDao {
 	@Override
 	public void addCreneau(Creneau C) {
 		try {
-			String Query = "insert into Creaneau values (?,?,?,?,?,?)";
+			String Query = "insert into Creaneaux values (?,?,?,?,?,?)";
 			PreparedStatement preparedStatement = connection.getConnection().prepareStatement(Query);
 			preparedStatement.setInt(1, C.getVersion());
 			preparedStatement.setInt(2, C.getHdebut());
@@ -70,7 +70,7 @@ public class CreneauxDaoImpl implements CreneauDao {
 	@Override
 	public void updateCreneau(Creneau C) {
 		try {
-			String Query = "Update Creaneau set Version = ? ,Hdebut=?,Mdebut=?,HFin=?,MFin=?,IdMedecin = ? where ID = ?";
+			String Query = "Update Creaneaux set version = ? ,hdebut=?,mdebut=?,hfin=?,mfin=?,id_medecin = ? where ID = ?";
 			PreparedStatement preparedStatement = connection.getConnection().prepareStatement(Query);
 			preparedStatement.setInt(1, C.getVersion());
 			preparedStatement.setInt(2, C.getHdebut());
@@ -93,7 +93,7 @@ public class CreneauxDaoImpl implements CreneauDao {
 	@Override
 	public void deleteCreneau(int id) {
 		try {
-			String Query = "Delete from Creaneau where ID = ?";
+			String Query = "Delete from Creaneaux where id = ?";
 			PreparedStatement pstmt = connection.getConnection().prepareStatement(Query);
 			pstmt.setInt(1, id);
 			int rowsDeleted = pstmt.executeUpdate();

@@ -25,7 +25,7 @@ public class ClientDaoImpl implements ClientDao {
 
 		try {
 			statement = databaseConnection.getConnection().createStatement();
-			resultSet = statement.executeQuery("select * from Client");
+			resultSet = statement.executeQuery("select * from Clients");
 
 			while (resultSet.next()) {
 				Client c = new Client(resultSet.getInt(1), resultSet.getInt(2), resultSet.getString(3),
@@ -45,7 +45,7 @@ public class ClientDaoImpl implements ClientDao {
 		try {
 			statement = databaseConnection.getConnection().createStatement();
 			PreparedStatement preparedStatement = databaseConnection.getConnection()
-					.prepareStatement("select * from Client where id=?");
+					.prepareStatement("select * from Clients where id=?");
 			preparedStatement.setInt(1, id);
 			resultSet = preparedStatement.executeQuery();
 
@@ -62,7 +62,7 @@ public class ClientDaoImpl implements ClientDao {
 	@Override
 	public void addClient(Client client) {
 		try {
-			String queryString = "insert into Client values (?,?,?,?)";
+			String queryString = "insert into Clients values (?,?,?,?)";
 			PreparedStatement preparedStatement = databaseConnection.getConnection().prepareStatement(queryString);
 			preparedStatement.setInt(1, client.getVersion());
 			preparedStatement.setString(2, client.getTitre());
@@ -81,7 +81,7 @@ public class ClientDaoImpl implements ClientDao {
 	@Override
 	public void updateClient(Client client) {
 		try {
-			String queryString = "Update Client set Version = ? ,Titre=?,Nom=?,Prenom=? where ID = ?";
+			String queryString = "Update Clients set version = ? ,titre=?,nom=?,prenom=? where id = ?";
 			PreparedStatement preparedStatement = databaseConnection.getConnection().prepareStatement(queryString);
 			preparedStatement.setInt(1, client.getVersion());
 			preparedStatement.setString(2, client.getTitre());
@@ -101,7 +101,7 @@ public class ClientDaoImpl implements ClientDao {
 	@Override
 	public void deleteClient(int id) {
 		try {
-			String queryString = "Delete from Client where ID = ?";
+			String queryString = "Delete from Clients where id = ?";
 			PreparedStatement preparedStatement = databaseConnection.getConnection().prepareStatement(queryString);
 			preparedStatement.setInt(1, id);
 			int rowsDeleted = preparedStatement.executeUpdate();

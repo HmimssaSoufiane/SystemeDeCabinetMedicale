@@ -28,7 +28,7 @@ public class MedecinDaoImpl implements MedecinDao {
 
 		try {
 			statement = connection.getConnection().createStatement();
-			resultSet = statement.executeQuery("select * from Medecin");
+			resultSet = statement.executeQuery("select * from Medecins");
 
 			while (resultSet.next()) {
 				Medecin medecin = new Medecin(resultSet.getInt(1), resultSet.getInt(2), resultSet.getString(3),
@@ -46,7 +46,7 @@ public class MedecinDaoImpl implements MedecinDao {
 		Medecin medecin = null;
 		try {
 			PreparedStatement preparedStatement = connection.getConnection()
-					.prepareStatement("select * from Medecin where ID = ?");
+					.prepareStatement("select * from Medecins where id = ?");
 			preparedStatement.setInt(1, id);
 			resultSet = preparedStatement.executeQuery();
 			if (resultSet.next())
@@ -62,7 +62,7 @@ public class MedecinDaoImpl implements MedecinDao {
 	@Override
 	public void addMedecin(Medecin medecin) {
 		try {
-			String Query = "insert into Medcin values (?,?,?,?)";
+			String Query = "insert into Medcins values (?,?,?,?)";
 			PreparedStatement preparedStatement = connection.getConnection().prepareStatement(Query);
 			preparedStatement.setInt(1, medecin.getVersion());
 			preparedStatement.setString(2, medecin.getTitre());
@@ -82,7 +82,7 @@ public class MedecinDaoImpl implements MedecinDao {
 	@Override
 	public void updateMedecin(Medecin medecin) {
 		try {
-			String Query = "Update Medecin set Virsion = ? ,Titre=?,Nom=?,Prenom=? where ID = ?";
+			String Query = "Update Medecins set virsion = ? ,titre=?,nom=?,prenom=? where id = ?";
 			PreparedStatement preparedStatement = connection.getConnection().prepareStatement(Query);
 			preparedStatement.setInt(1, medecin.getVersion());
 			preparedStatement.setString(2, medecin.getTitre());
@@ -103,7 +103,7 @@ public class MedecinDaoImpl implements MedecinDao {
 	@Override
 	public void deleteMedecin(int id) {
 		try {
-			String Query = "Delete from Medecin where ID = ?";
+			String Query = "Delete from Medecins where id = ?";
 			PreparedStatement preparedStatement = connection.getConnection().prepareStatement(Query);
 			preparedStatement.setInt(1, id);
 			int rowsDeleted = preparedStatement.executeUpdate();
